@@ -1,0 +1,15 @@
+#version 330 core
+out vec4 FragColor;
+
+in vec2 TexCoords;
+
+// texture sampler
+uniform sampler2D centerTxc;
+
+void main()
+{
+	vec4 texColor = texture(centerTxc, TexCoords);
+    if(texColor.a < 0.1)
+        discard;
+    FragColor = texColor;
+}
